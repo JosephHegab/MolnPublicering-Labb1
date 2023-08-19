@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   dockerappinazure:
-    image: josephccr.azurecr.io/dockerappinazure
+    image: dockerapp22.azurecr.io/dockerappinazure
     
     build:
       context: .
@@ -16,7 +16,7 @@ services:
 
 
   mvcui:
-    image: josephccr.azurecr.io/mvcui
+    image: dockerapp22.azurecr.io/mvcui
     build:
       context: .
       dockerfile: MVCUI/Dockerfile
