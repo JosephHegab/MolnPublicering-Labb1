@@ -34,7 +34,7 @@ namespace MVCUI.Controllers
                     }
                     else
                     {
-                        ViewBag.Messsage = "Error in project";
+                        ViewBag.Message = "Error in project";
                     }
                 }
             }
