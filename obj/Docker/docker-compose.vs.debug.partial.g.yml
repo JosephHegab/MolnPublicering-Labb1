@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   dockerappinazure:
-    image: josephccr.azurecr.io/dockerappinazure:dev
+    image: dockerapp22.azurecr.io/dockerappinazure:dev
     container_name: DockerAppinAzure_1
     build:
       target: base
@@ -29,7 +29,7 @@ services:
       com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
     tty: true
   mvcui:
-    image: josephccr.azurecr.io/mvcui:dev
+    image: dockerapp22.azurecr.io/mvcui:dev
     container_name: MVCUI_1
     build:
       target: base

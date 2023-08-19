@@ -1,40 +1,34 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
 
 namespace DockerAppinAzure.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class JokeController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
+        private static readonly string[] Jokes = new[]
         {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+            "Why did the chicken cross the road? To get to the other side!",
+            "What do you call fake spaghetti? An Impasta!",
+            "Why did the scarecrow win an award? Because he was outstanding in his field!",
+            "I would tell you a chemistry joke but I know I wouldn't get a reaction.",
+            "Why did the tomato turn red? Because it saw the salad dressing!"
+        };
 
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ILogger<JokeController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public JokeController(ILogger<JokeController> logger)
         {
             _logger = logger;
         }
 
-        //[HttpGet(Name = "GetWeatherForecast")]
-        //public IEnumerable<WeatherForecast> Get()
-        //{
-        //    return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-        //    {
-        //        Date = DateTime.Now.AddDays(index),
-        //        TemperatureC = Random.Shared.Next(-20, 55),
-        //        Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-        //    })
-        //    .ToArray();
-        //}
-
-
-        [HttpGet(Name = "GetWeatherForecast")]
+        [HttpGet(Name = "GetJoke")]
         public string Get()
         {
-            return "Joseph Joseph";
+            int jokeIndex = new System.Random().Next(Jokes.Length);
+            return Jokes[jokeIndex];
         }
     }
 }

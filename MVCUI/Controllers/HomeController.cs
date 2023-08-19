@@ -24,7 +24,7 @@ namespace MVCUI.Controllers
                 {
                     client.BaseAddress = new Uri(APIURL);
 
-                    var reponse = await client.GetAsync("/weatherforecast");
+                    var reponse = await client.GetAsync("/GetJoke");
 
                     if (reponse.IsSuccessStatusCode)
                     {
