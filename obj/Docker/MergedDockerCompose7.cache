@@ -1,0 +1,23 @@
+name: dockercompose15828262993338890186
+services:
+  dockerappinazure:
+    build:
+      context: C:\Users\jhega\source\repos\DockerAppinAzure
+      dockerfile: DockerAppinAzure/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: dockerappinazure
+    networks:
+      default: null
+  mvcui:
+    build:
+      context: C:\Users\jhega\source\repos\DockerAppinAzure
+      dockerfile: MVCUI/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: mvcui
+    networks:
+      default: null
+networks:
+  default:
+    name: dockercompose15828262993338890186_default

@@ -1,0 +1,33 @@
+version: '3.4'
+
+services:
+  dockerappinazure:
+    image: josephccr.azurecr.io/dockerappinazure
+    
+    build:
+      context: .
+      dockerfile: DockerAppinAzure/Dockerfile
+    environment:
+      - ASPNETCORE_URLS=http://+:80
+   
+    networks:
+      - learnnetwork
+    
+
+
+  mvcui:
+    image: josephccr.azurecr.io/mvcui
+    build:
+      context: .
+      dockerfile: MVCUI/Dockerfile
+    networks:
+      - learnnetwork
+    ports:
+        - "8080:80"
+    environment:
+      - ASPNETCORE_URLS=http://+:80
+   
+
+networks:
+  learnnetwork:
+    driver: bridge
