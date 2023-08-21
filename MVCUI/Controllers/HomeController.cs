@@ -17,28 +17,28 @@ namespace MVCUI.Controllers
 
         public async Task<IActionResult> Index()
         {
-            string APIURL = _configuration["APIURL"];
-            try
-            {
-                using (HttpClient client = new HttpClient())
-                {
-                    client.BaseAddress = new Uri(APIURL);
+            //string APIURL = _configuration["APIURL"];
+            //try
+            //{
+            //    using (HttpClient client = new HttpClient())
+            //    {
+            //        client.BaseAddress = new Uri(APIURL);
 
-                    var reponse = await client.GetAsync("/weatherforecast");
+            //        var reponse = await client.GetAsync("/weatherforecast");
 
-                    if (reponse.IsSuccessStatusCode)
-                    {
-                        string resbody = await reponse.Content.ReadAsStringAsync();
+            //        if (reponse.IsSuccessStatusCode)
+            //        {
+            //            string resbody = await reponse.Content.ReadAsStringAsync();
 
-                        ViewBag.Message = resbody;
-                    }
-                    else
-                    {
-                        ViewBag.Message = "Error in project";
-                    }
-                }
-            }
-            catch (Exception ex) { }
+            //            ViewBag.Message = resbody;
+            //        }
+            //        else
+            //        {
+            //            ViewBag.Message = "Error in project";
+            //        }
+            //    }
+            //}
+            //catch (Exception ex) { }
             return View();
         }
 
